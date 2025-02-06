@@ -1,5 +1,4 @@
-// src/models/OrderModel.ts
-import { DBHelper } from "../utils/databaseHelper";
+import { DBHelper } from "../../utils/DBHelper";
 
 export class OrderModel {
   static async create(order: any) {

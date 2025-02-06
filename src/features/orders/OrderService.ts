@@ -1,6 +1,4 @@
-// src/services/OrderService.ts
-import { OrderModel } from "../models/OrderModel";
-import { ResponseHandler } from "../utils/responseHandler";
+import { OrderModel } from ".";
 
 export class OrderService {
   static async createOrder(order: { userId: number; totalPrice: number; status: string }) {

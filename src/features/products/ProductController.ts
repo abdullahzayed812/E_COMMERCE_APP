@@ -1,7 +1,6 @@
-// src/controllers/ProductController.ts
 import { Request, Response } from "express";
-import { ProductService } from "../services/ProductService";
-import { ResponseHandler } from "../utils/responseHandler";
+import { ProductService } from "./ProductService";
+import { ResponseHandler } from "../../utils/ResponseHandler";
 
 export class ProductController {
   static async create(req: Request, res: Response) {

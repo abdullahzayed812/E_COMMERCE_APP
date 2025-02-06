@@ -1,5 +1,4 @@
-// src/services/UserService.ts
-import { UserModel } from "../models/UserModel";
+import { UserModel } from ".";
 
 export class UserService {
   static async createUser(user: { name: string; email: string; password: string }) {

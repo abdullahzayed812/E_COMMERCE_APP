@@ -1,7 +1,6 @@
-// src/controllers/UserController.ts
 import { Request, Response } from "express";
-import { UserService } from "../services/userService";
-import { ResponseHandler } from "../utils/responseHandler";
+import { UserService } from ".";
+import { ResponseHandler } from "../../utils";
 
 export class UserController {
   static async create(req: Request, res: Response) {

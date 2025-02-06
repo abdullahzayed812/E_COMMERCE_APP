@@ -1,5 +1,4 @@
-// src/services/ProductService.ts
-import { ProductModel } from "../models/ProductModel";
+import { ProductModel } from ".";
 
 export class ProductService {
   static async createProduct(product: { name: string; description: string; price: number; categoryId: number }) {

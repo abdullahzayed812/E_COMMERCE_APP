@@ -1,5 +1,4 @@
-// src/models/ProductModel.ts
-import { DBHelper } from "../utils/databaseHelper";
+import { DBHelper } from "../../utils/DBHelper";
 
 export class ProductModel {
   static async create(product: any) {

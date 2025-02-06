@@ -1,5 +1,4 @@
-// src/models/UserModel.ts
-import { DBHelper } from "../utils/databaseHelper";
+import { DBHelper } from "../../utils";
 
 export class UserModel {
   static async create(user: any) {

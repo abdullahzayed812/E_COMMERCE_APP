@@ -1,7 +1,6 @@
-// src/controllers/OrderController.ts
 import { Request, Response } from "express";
-import { OrderService } from "../services/OrderService";
-import { ResponseHandler } from "../utils/responseHandler";
+import { OrderService } from ".";
+import { ResponseHandler } from "../../utils";
 
 export class OrderController {
   static async create(req: Request, res: Response) {

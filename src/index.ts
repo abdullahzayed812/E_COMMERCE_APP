@@ -1,20 +1,17 @@
-// src/app.ts
-import express from "express";
-import userRoutes from "./routes/userRoutes";
-import productRoutes from "./routes/productRoutes";
-import categoryRoutes from "./routes/categoryRoutes";
-import orderRoutes from "./routes/orderRoutes";
+import dotenv from "dotenv";
+import { createServer } from "./server";
 
-const app = express();
-app.use(express.json());
+(async () => {
+  dotenv.config();
 
-// Use routes
-app.use(userRoutes);
-app.use(productRoutes);
-app.use(categoryRoutes);
-app.use(orderRoutes);
+  const { ENV, PORT } = process.env;
 
-// Start the server
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+  if (!ENV || !PORT) {
+    console.error("Missing some required env variables.");
+    process.exit(1);
+  }
+
+  const server = await createServer();
+
+  server.listen(PORT, () => console.log(`Listening on port ${PORT} in ${ENV} environment.`));
+})();
