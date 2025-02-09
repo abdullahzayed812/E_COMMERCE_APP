@@ -1,7 +1,6 @@
-import { Request, Response } from "express";
 import { UserService } from ".";
 import { ResponseHandler } from "../../utils";
-import { SignInRequest, SignInResponse, User } from "./types";
+import { SignInRequest, SignInResponse } from "./types";
 import { ExpressHandler } from "../../types";
 
 export class UserController {
@@ -16,7 +15,8 @@ export class UserController {
       ResponseHandler.error(res, "The user data are incomplete.", 400);
     }
 
-    const result = await this.userService.getUserByEmail(login!);
+    const result =
+      (await this.userService.getUserByEmail(login!)) || (await this.userService.getUserByUsername(login!));
 
     if (result.success) {
       ResponseHandler.success(res, result.message, result.data);

@@ -1,9 +1,12 @@
 import { Router } from "express";
-import { UserController } from ".";
+import { UserController, UserModel, UserService } from ".";
 
 const router = Router();
 
-router.post("/users", UserController.create);
-router.get("/users/:email", UserController.getByEmail);
+const userModel = new UserModel();
+const userService = new UserService(userModel);
+const userController = new UserController(userService);
+
+router.get("/signIn", userController.signIn);
 
 export default router;
