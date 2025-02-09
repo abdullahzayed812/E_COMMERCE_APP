@@ -1,7 +1,9 @@
+import { RequestHandler } from "express";
+
 export type ApiError = {
   code: string;
   message: string;
-  stack?: string; // Include stack trace in development
+  stack?: string;
 };
 
 export type ApiResponse<T = any> = {
@@ -10,3 +12,5 @@ export type ApiResponse<T = any> = {
   data?: T;
   errorDetails?: ApiError;
 };
+
+export type ExpressHandler<Req, Res> = RequestHandler<string, Partial<ApiResponse<Res>>, Partial<Req>, any>;

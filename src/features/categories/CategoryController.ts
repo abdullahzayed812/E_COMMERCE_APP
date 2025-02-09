@@ -1,4 +1,4 @@
-import { ExpressHandler } from "../../types/ExpressHandler";
+import { ExpressHandler } from "../../types/apis";
 import { CategoryService } from "./CategoryService";
 import { ResponseHandler } from "../../utils/ResponseHandler";
 import { ApiResponse } from "../../types/ApiResponse";

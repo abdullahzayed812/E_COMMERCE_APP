@@ -1,18 +1,27 @@
 import { UserModel } from ".";
+import { User } from "./types";
 
 export class UserService {
-  static async createUser(user: { name: string; email: string; password: string }) {
+  constructor(private userModel: UserModel) {}
+
+  public async getUserByEmail(email: string) {
     try {
-      const result = await UserModel.create(user);
-      return { success: true, message: "User created successfully", data: result };
+      const user = await this.userModel.findByEmail(email);
+
+      if (user) {
+        return { success: true, message: "User found", data: user };
+      } else {
+        return { success: false, message: "User not found" };
+      }
     } catch (error) {
-      return { success: false, message: "Failed to create user", errorDetails: error };
+      return { success: false, message: "Error fetching user", errorDetails: error };
     }
   }
 
-  static async getUserByEmail(email: string) {
+  public async getUserByUsername(username: string) {
     try {
-      const user = await UserModel.findByEmail(email);
+      const user = await this.userModel.findByUsername(username);
+
       if (user) {
         return { success: true, message: "User found", data: user };
       } else {

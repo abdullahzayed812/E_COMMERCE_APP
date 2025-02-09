@@ -1,4 +1,4 @@
-import { convertObjectKeysToCamelCase } from "./namingConvention";
+import { convertObjectKeysToCamelCase } from "./convertion";
 import { DBConfig } from "../configs/database";
 import { ResultSetHeader, RowDataPacket } from "mysql2";
 
