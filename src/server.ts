@@ -6,9 +6,14 @@ import orderRoutes from "./features/orders/orderRoutes";
 import express from "express";
 import cors from "cors";
 import { errorHandler, requestLogger } from "./middlewares";
+import { AuthMiddleware } from "./middlewares/authMiddleware";
+import { UserModel } from "./features/users";
 
 export async function createServer(logRequests: boolean = true) {
   const app = express();
+
+  const userModel = new UserModel();
+  const auth = new AuthMiddleware(userModel);
 
   app.use(express.json());
   app.use(cors());
@@ -18,6 +23,9 @@ export async function createServer(logRequests: boolean = true) {
   }
 
   app.use("api/v1/users", userRoutes);
+
+  app.use(auth.parseJwt, auth.enforceJwt);
+
   app.use("api/v1/products", productRoutes);
   app.use("api/v1/categories", categoryRoutes);
   app.use("api/v1/orders", orderRoutes);

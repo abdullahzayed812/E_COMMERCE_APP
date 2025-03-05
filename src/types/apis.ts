@@ -1,5 +1,9 @@
 import { RequestHandler } from "express";
 
+export interface JwtPayload {
+  userId: string;
+}
+
 export type ApiError = {
   code: string;
   message: string;
