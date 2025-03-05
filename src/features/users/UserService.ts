@@ -31,4 +31,6 @@ export class UserService {
       return { success: false, message: "Error fetching user", errorDetails: error };
     }
   }
+
+  public async createUser(user: Partial<User>) {}
 }

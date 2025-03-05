@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { ApiResponse } from "../types/ApiResponse";
+import { ApiResponse } from "../types";
 
 export class ResponseHandler {
   static success<T>(res: Response, message: string, data?: T) {
